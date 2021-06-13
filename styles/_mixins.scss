@@ -1,0 +1,82 @@
+@import './variables';
+
+@mixin style_reset{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+@mixin note_column_board{
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 23%;
+        height: 85vh;
+        background: linear-gradient(90deg, #575ad8 50%, transparent 50%), 
+                    linear-gradient(90deg, #575ad8 50%, transparent 50%), 
+                    linear-gradient(0deg, #575ad8 50%, transparent 50%), 
+                    linear-gradient(0deg, #575ad8 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
+        background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+        border-radius: 1em;
+        animation: dash 5s linear infinite;
+        animation-play-state: paused;
+        margin: 1em;
+}
+@mixin create_column {
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 98%;
+            height: 84vh;
+            background-color: $kanban-createColumn-color; 
+            z-index: 99;
+            cursor: pointer;
+            border-radius: 0.5em;
+            
+}
+@mixin kanban_column{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 23%;
+    min-height: 85vh;
+    background-color: #fff; 
+    z-index: 99;
+    cursor: pointer;
+    border-radius: 0.5em;
+    margin: 1em;
+    div.column_info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    
+    span{
+        font-size: 2.5vw;
+        font-family: 'Cabin', sans-serif;
+    }
+   
+    }
+    div.icon_add_note{
+        display: flex;
+        width: 3vw;
+        height: 3vw;
+        background-color: #48bfe3;
+        opacity: 1;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 2em;
+        margin: 1px;
+        margin-top: 2em;
+        i{
+            font-size: 2.5rem;
+            color: #4b4ddf;
+            z-index: 9;
+        }
+    }
+}

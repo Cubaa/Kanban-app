@@ -1,0 +1,128 @@
+@import './mixins';
+@import './kanban_nav';
+@import './kanban_board';
+*{
+    @include style_reset
+}
+
+html{
+    font-size: 10px;
+}
+body{
+    position: absolute;
+    overflow-x: hidden;
+    width:100%;
+    height: 100vh;
+    div.live_chat{
+        position: fixed;
+        top:60%;
+        left:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 40vh;
+        background-color: #5e60ce;
+        z-index: 100000;
+        border-radius: 4px;
+        transition: .4s ease-in-out;
+        div.chat_window{
+            width: 95%;
+            height: 95%;
+          
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            div.times_wrapper{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                i{
+                    font-size: 20px;
+                    color: red;
+                    cursor: pointer
+                };
+            }
+            div.chat_message_window{
+                width: 100%;
+                height: 200px;
+                background-color: #f4f1de;
+               
+                overflow-y: scroll;
+                div.chat_message{
+                   width: 70%;
+                    height: 5vh;
+                    background-color: lightgrey;
+                    margin: 4px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        font-family: 'Cabin', sans-serif;
+                        font-size: 12px;
+                        display: inline;
+                    }
+                }
+            }
+            div.chat_input_button_wrapper{
+                width:100%;
+                height: 15%;
+                background-color: #5e60ce;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3px;
+                input{
+                    width: 70%;
+                    padding: 3px 10px;
+                    margin-right: 5px;
+                    border: none;
+                    outline: none;
+                }
+                button{
+                    width: 20%;
+                    padding: 2px 8px;
+                    border: none;
+                    background-color: #fff;
+                    cursor: pointer;
+                }
+            }
+           
+        }
+       
+    }
+    div.chat_on{
+        position: fixed;
+        cursor: pointer;
+        top: 70%;
+        left: 99%;
+        width: 5%;
+        height: 5vw;
+        z-index: 999999;
+        background-color: #5e60ce;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        transition: .4s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            left: 95%;
+        }
+        span{
+            color: white;
+            width: 40px;
+            text-align: center;
+            font-family: 'Cabin', sans-serif;
+            font-size: 12px;
+        }
+    }
+    div.live_chat.show{
+        top: 60%;
+        left: 70%;
+    }
+    div.chat_on.hidden{
+        top: 70%;
+        left: 100%;
+    }
+}

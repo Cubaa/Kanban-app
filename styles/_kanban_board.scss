@@ -1,0 +1,184 @@
+@import './variables';
+
+
+div.blur_layout{
+    display: none;
+    position: fixed;
+    top:10%;
+    left:0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+
+}
+div.blur_layout.active{
+    display: block;
+}
+section.kanban_board{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 90vh;
+    background-color: $kanban-board-color;
+padding-top: 7rem;
+    overflow-x: hidden;
+    div.create_column_border {
+        @include note_column_board;
+        &:hover{
+            animation-play-state: running;
+        }
+        @keyframes dash {
+            to {
+               background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+               }
+       }
+        div.create_column{
+            @include create_column;
+            div.icon_plus_wrapper{
+                background-color: transparent;
+                transform: scale(1);
+                transition: transform .1s linear;
+                padding: 4px;
+                i{
+                    font-size: 4rem;
+                    color: #575ad8;
+                    cursor: pointer; 
+                }
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+               
+                
+            }
+        
+    }
+    div.popup_data_column{
+        display: none;
+        padding: 10px;
+        position: fixed;
+        top:20%;
+        left:50%;
+      
+        flex-direction: column;
+        transform: translate(-50%);
+        width: 20%;
+        min-height: 5vh;
+        background-color: #5e60ce;
+        border-radius: 0.4em;
+        z-index: 10000;
+        input{
+            margin: 1rem;
+            padding: 0.4em 0.9em;
+            outline: none;
+            border: none;
+            background-color: #f4f1de;
+        }
+        button{
+            padding: 0.4em 0.9em;
+            margin: 1rem;
+            border: none;
+            font-family: 'Cabin', sans-serif;
+            cursor: pointer;
+            background-color: #f4f1de;
+            font-weight: bold;
+            color: #4b4ddf;
+        }
+        div.times_wrapper{
+            width:100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+            i{
+                font-size: 25px;
+                cursor: pointer;
+                color: rgb(158, 8, 8);
+            }
+        }
+    }
+    div.popup_data_column.active{
+        display: block;
+        display: flex;
+    }
+    div.kanban_column{
+        @include kanban_column;
+        div.icon_remove_wrapper{
+            width:100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 10px 5px 0;
+            align-items: center;
+            i{
+                font-size: 30px;
+                color: red;
+                cursor: pointer;
+            }
+        }
+        div.kanban_note{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            width: 95%;
+            height: 10vh;
+            background-color: #48bfe3;
+            margin-top: 5px;
+            span{
+                color: white;
+                font-family: 'Cabin', sans-serif;
+                font-size: 16px;
+            }
+        }
+      
+        
+    }
+
+    div.popup_data_note{
+        display: none;
+        padding: 10px;
+        position: fixed;
+        top:20%;
+        left:50%;
+      
+        flex-direction: column;
+        transform: translate(-50%);
+        width: 25%;
+        min-height: 5vh;
+        background-color: #5e60ce;
+        border-radius: 0.4em;
+        z-index: 10000;
+        input{
+            margin: 1rem;
+            padding: 0.4em 0.9em;
+            outline: none;
+            border: none;
+            background-color: #f4f1de;
+        }
+        button{
+            padding: 0.4em 0.9em;
+            margin: 1rem;
+            border: none;
+            font-family: 'Cabin', sans-serif;
+            cursor: pointer;
+            background-color: #f4f1de;
+            font-weight: bold;
+            color: #4b4ddf;
+        }
+        div.times_wrapper{
+            width:100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+            i{
+                font-size: 25px;
+                cursor: pointer;
+                color: rgb(158, 8, 8);
+            }
+        }
+    }
+  
+}
